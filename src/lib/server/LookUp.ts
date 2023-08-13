@@ -1,5 +1,8 @@
 import fs from 'fs';
 import readline from 'readline';
+import names from '$lib/server/assets/Names.txt';
+import VietPhrase from '$lib/server/assets/VietPhrase.txt';
+import LViet from '$lib/server/assets/LacViet.txt';
 let Dicts: any;
 const Names = './src/lib/server/assets/Names.txt';
 const VP = './src/lib/server/assets/VietPhrase.txt';
