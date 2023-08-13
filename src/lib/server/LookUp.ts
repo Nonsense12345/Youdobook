@@ -2,8 +2,8 @@ import Names from '$lib/server/assets/Names.txt?url';
 import VP from '$lib/server/assets/VietPhrase.txt?url';
 import LV from '$lib/server/assets/LacViet.txt?url';
 import readline from 'readline';
-import fs from 'fs';
-import path from 'path';
+// import fs from 'fs';
+// import path from 'path';
 let Dicts: any;
 // const Names = './src/lib/server/assets/Names.txt';
 // const VP = './src/lib/server/assets/VietPhrase.txt';
@@ -17,7 +17,7 @@ async function initDict() {
 }
 
 async function GenDictMap(file_path: string) {
-	let new_path = path.join('.'+file_path);
+	let new_path = '.'+file_path;
 	const fileStream = fs.createReadStream(new_path);
 	const rl = readline.createInterface({
 		input: fileStream,
