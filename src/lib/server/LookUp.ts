@@ -1,29 +1,22 @@
-import fs from 'fs';
-import readline from 'readline';
-import names from '$lib/server/assets/Names.txt';
-import VietPhrase from '$lib/server/assets/VietPhrase.txt';
-import LViet from '$lib/server/assets/LacViet.txt';
+import Names from '$lib/server/assets/Names.txt?raw';
+import VP from '$lib/server/assets/VietPhrase.txt?raw';
+import LV from '$lib/server/assets/LacViet.txt?raw';
 let Dicts: any;
-const Names = './src/lib/server/assets/Names.txt';
-const VP = './src/lib/server/assets/VietPhrase.txt';
-const LV = './src/lib/server/assets/LacViet.txt';
-async function initDict() {
+// const Names = './src/lib/server/assets/Names.txt';
+// const VP = './src/lib/server/assets/VietPhrase.txt';
+// const LV = './src/lib/server/assets/LacViet.txt';
+function initDict() {
 	Dicts = {
-		names: await GenDictMap(Names),
-		VP: await GenDictMap(VP),
-		LV: await GenDictMap(LV)
+		names: GenDictMap(Names),
+		VP: GenDictMap(VP),
+		LV: GenDictMap(LV)
 	};
 }
 
-async function GenDictMap(file_path: string) {
+function GenDictMap(data: string) {
 	let map = new Map() as Map<string, string>;
-
-	const fileStream = fs.createReadStream(file_path);
-	const readLine = readline.createInterface({
-		input: fileStream,
-		crlfDelay: Infinity
-	});
-	for await (const line of readLine) {
+	const readLine = data.split('\n');
+	for (const line of readLine) {
 		const [key, value] = line.split('=') as [string, string];
 		map.set(key, value);
 	}
