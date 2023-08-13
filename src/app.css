@@ -1,0 +1,38 @@
+* {
+	position: relative;
+	box-sizing: border-box;
+}
+html {
+	background: radial-gradient(circle, rgb(88, 3, 84), rgb(27, 27, 33));
+	margin: 0;
+	padding: 0;
+	color: bisque;
+	position: relative;
+}
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+cv-w:hover {
+	text-decoration: underline;
+	text-decoration-color: aquamarine;
+	cursor: pointer;
+}
+zh-w:hover {
+	text-decoration: underline;
+	text-decoration-color: aquamarine;
+	cursor: pointer;
+}
+cv-w:focus {
+	background-color: blueviolet;
+}
+zh-w:focus {
+	background-color: blueviolet;
+}
+.focus {
+	text-decoration: underline;
+	text-decoration-color: bisque;
+	cursor: pointer;
+	background-color: rgb(97, 15, 97);
+}
