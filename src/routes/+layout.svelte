@@ -4,6 +4,8 @@
   import {page} from "$app/stores"
   import favicon from "$lib/assets/favicon.png"
   let novel_id : string
+  import { updated } from '$app/stores';
+
   
   const getNovel = async (novel_id) => {
         const data = await fetch('/cwmapi', {
@@ -34,7 +36,7 @@
   </fieldset>
   </form>
 </nav>
-<main>
+<main data-sveltekit-reload={$updated ? 'off' : ''}>
   <slot/>
 </main>
 

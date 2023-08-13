@@ -1,9 +1,9 @@
-import Names from '$lib/server/assets/Names.txt';
-import VP from '$lib/server/assets/VietPhrase.txt';
-import LV from '$lib/server/assets/LacViet.txt';
 import fs from 'fs';
 import readline from 'readline';
 let Dicts: any;
+const Names = './src/lib/server/assets/Names.txt';
+const VP = './src/lib/server/assets/VietPhrase.txt';
+const LV = './src/lib/server/assets/LacViet.txt';
 async function initDict() {
 	Dicts = {
 		names: await GenDictMap(Names),
@@ -11,11 +11,11 @@ async function initDict() {
 		LV: await GenDictMap(LV)
 	};
 }
-await initDict();
+
 async function GenDictMap(file_path: string) {
 	let map = new Map() as Map<string, string>;
 
-	const fileStream = fs.createReadStream('.' + file_path);
+	const fileStream = fs.createReadStream(file_path);
 	const readLine = readline.createInterface({
 		input: fileStream,
 		crlfDelay: Infinity
@@ -37,3 +37,4 @@ export function addName(zh: string, vi: string) {
 export function addVP(zh: string, vi: string) {
 	Dicts['VP'].set(zh, vi);
 }
+initDict();
