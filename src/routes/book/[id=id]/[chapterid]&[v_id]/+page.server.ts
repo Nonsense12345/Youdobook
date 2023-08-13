@@ -24,7 +24,7 @@ export const actions = {
 		const dict = formData.get('dict');
 		if (dict == 'Names') {
 			fs.appendFile(
-				path.join(process.cwd(), '.svelte-kit', 'output', 'server', Names),
+				path.join('.'+ Names),
 				`\n${zh}=${vi}`,
 				() => {
 					console.log('Done!!');
@@ -33,7 +33,7 @@ export const actions = {
 			addName(zh, vi);
 		} else {
 			fs.appendFile(
-				path.join(process.cwd(), '.svelte-kit', 'output', 'server', VP),
+				path.join('.'+ VP),
 				`\n${zh}=${vi}`,
 				() => {
 					console.log('Done!!');
