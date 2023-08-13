@@ -24,7 +24,7 @@ export const actions = {
 		const dict = formData.get('dict');
 		if (dict == 'Names') {
 			fs.appendFile(
-				path.join('.'+ Names),
+				'.'+ Names,
 				`\n${zh}=${vi}`,
 				() => {
 					console.log('Done!!');
@@ -33,7 +33,7 @@ export const actions = {
 			addName(zh, vi);
 		} else {
 			fs.appendFile(
-				path.join('.'+ VP),
+				'.'+ VP,
 				`\n${zh}=${vi}`,
 				() => {
 					console.log('Done!!');
