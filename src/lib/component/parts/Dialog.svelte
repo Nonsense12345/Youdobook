@@ -27,7 +27,7 @@
   .EditArea {
     opacity: 1;
     position: absolute;
-    top : 100%;
+    top : -900%;
     left: 100%;
     background-color: aqua;
     color: black;
