@@ -17,7 +17,7 @@ async function initDict() {
 }
 
 async function GenDictMap(file_path: string) {
-	let new_path = path.join(process.cwd(), '.svelte-kit', 'output', 'server', file_path);
+	let new_path = path.join('.'+file_path);
 	const fileStream = fs.createReadStream(new_path);
 	const rl = readline.createInterface({
 		input: fileStream,
