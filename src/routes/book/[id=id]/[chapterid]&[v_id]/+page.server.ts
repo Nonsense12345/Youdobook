@@ -1,9 +1,10 @@
 import { getChapterById } from '$lib/api_call.js';
 import { tokenize } from '$lib/tokenize.js';
 import { addName, addVP } from '$lib/server/LookUp.js';
-import Names from '$lib/server/assets/Names.txt';
-import VP from '$lib/server/assets/VietPhrase.txt';
+import Names from '$lib/server/assets/Names.txt?url';
+import VP from '$lib/server/assets/VietPhrase.txt?url';
 import fs from 'fs';
+import path from 'path';
 export const load = async ({ params }) => {
 	console.log(params);
 	const { id, chapterid, v_id } = params;
@@ -21,16 +22,23 @@ export const actions = {
 		const zh = formData.get('zh') as string;
 		const vi = formData.get('vi') as string;
 		const dict = formData.get('dict');
-
 		if (dict == 'Names') {
-			fs.appendFile(Names, `\n${zh}=${vi}`, () => {
-				console.log('Done!!');
-			});
+			fs.appendFile(
+				path.join(process.cwd(), '.svelte-kit', 'output', 'server', Names),
+				`\n${zh}=${vi}`,
+				() => {
+					console.log('Done!!');
+				}
+			);
 			addName(zh, vi);
 		} else {
-			fs.appendFile(VP, `\n${zh}=${vi}`, () => {
-				console.log('Done!!');
-			});
+			fs.appendFile(
+				path.join(process.cwd(), '.svelte-kit', 'output', 'server', VP),
+				`\n${zh}=${vi}`,
+				() => {
+					console.log('Done!!');
+				}
+			);
 			addVP(zh, vi);
 		}
 	}
