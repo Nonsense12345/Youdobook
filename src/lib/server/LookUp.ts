@@ -2,7 +2,7 @@ import Names from '$lib/server/assets/Names.txt?url';
 import VP from '$lib/server/assets/VietPhrase.txt?url';
 import LV from '$lib/server/assets/LacViet.txt?url';
 import readline from 'readline';
-// import fs from 'fs';
+import fs from 'fs';
 // import path from 'path';
 let Dicts: any;
 // const Names = './src/lib/server/assets/Names.txt';
